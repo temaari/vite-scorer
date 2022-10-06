@@ -4,7 +4,7 @@
         <div class="t-player-names">
             <span v-for="(player, i) in players" :key="i">
                 <span class="t-player" v-if="player">
-                    <p class="grid-col-span-3">{{ player.name }}</p>
+                    <p class="t-point-btn">{{ player.name }}</p>
                     <p class="horizontal-center">{{ player.points }}</p>
                     <button @click="removePoint(player)">-</button>
                     <button @click="addPoint(player)">+</button>
@@ -61,7 +61,7 @@
     .t-player-names {
         display: grid;
         gap: 1rem;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
     .t-player-names > * {
         max-height: 8vh;
@@ -69,26 +69,49 @@
     }
     .t-player {
         display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        gap: 1;
+        grid-template-columns: repeat(12, 1fr);
     }
     .horizontal-center {
         display: flex;
         justify-content: center;
     }
-    .grid-col-span-3 {
-        grid-column: span 3;
+    .t-point-btn {
+        grid-column: span 9;
     }
     .t-player button {
         border-radius: 100%;
-        width: 90%;
-        height: 100%;
+        width: 50px;
+        height: 50px;
         font-size: 1ch;
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
+    @media only screen and (max-width: 1600px) {
+        .t-player {
+            grid-template-columns: repeat(9, 1fr);
+        }
+        .t-point-btn {
+            grid-column: span 6;
+        }
+    }
+    @media only screen and (max-width: 1000px) {
+        .t-player {
+            grid-template-columns: repeat(7, 1fr);
+        }
+        .t-point-btn {
+            grid-column: span 4;
+        }
+    }
+    @media only screen and (max-width: 700px) {
+        .t-player {
+            grid-template-columns: repeat(7, 1fr);
+        }
+        .t-point-btn {
+            grid-column: span 4;
+        }
+    }
     @media only screen and (max-width: 700px) {
         .t-player-item {
             min-height: 100vh;
@@ -103,6 +126,14 @@
             padding-bottom: 0.5rem;
             margin-bottom: 0.5rem;
             border-bottom: 1px solid black;
+        }
+    }
+    @media only screen and (max-width: 500px) {
+        .t-player {
+            grid-template-columns: repeat(5, 1fr);
+        }
+        .t-point-btn {
+            grid-column: span 2;
         }
     }
 </style>

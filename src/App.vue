@@ -95,14 +95,12 @@
 
 <style>
     .game-window {
-        min-height: 40vh;
-        max-width: 60%;
-        margin: 0 auto;
-        margin-top: 15vh;
+        min-height: 100vh;
+        max-width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        background: lightcyan;
+        margin: 1rem;
     }
     .game-content {
         min-height: 40vh;
