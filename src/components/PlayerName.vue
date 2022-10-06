@@ -58,8 +58,8 @@
         min-height: 20vh;
     }
     .s-player-names > * {
-        max-height: 8vh;
-        min-height: 6vh;
+        max-height: 6vh;
+        min-height: 4rem;
     }
     @media only screen and (max-width: 700px) {
         .s-player-names {

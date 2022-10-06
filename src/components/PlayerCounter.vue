@@ -42,12 +42,13 @@
     .player-count {
         display: flex;
         flex-direction: column;
+        gap: 1rem;
     }
     .count-select {
         background: lightgrey;
         border: 0;
         outline: 0;
-        height: 5vh;
+        height: 5rem;
         font-size: 1ch;
         text-align: center;
     }

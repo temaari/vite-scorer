@@ -6,8 +6,18 @@
                 <span class="t-player" v-if="player">
                     <p class="t-point-btn">{{ player.name }}</p>
                     <p class="horizontal-center">{{ player.points }}</p>
-                    <button @click="removePoint(player)">-</button>
-                    <button @click="addPoint(player)">+</button>
+                    <svg-icon 
+                        @click="removePoint(player)"
+                        type="mdi"
+                        size="50"
+                        :path="icons.mdiMinusCircleOutline"
+                    ></svg-icon>
+                    <svg-icon
+                        @click="addPoint(player)"
+                        type="mdi"
+                        size="50"
+                        :path="icons.mdiPlusCircleOutline">
+                    </svg-icon>
                 </span>
             </span>
         </div>
@@ -15,9 +25,20 @@
 </template>
 
 <script>
+    import SvgIcon from '@jamescoyle/vue-icon'
+    import { mdiPlusCircleOutline, mdiMinusCircleOutline } from '@mdi/js'
     export default {
+        components: {
+            SvgIcon
+        },
         name: 'GameStart',
-        data: () => ({ refresh: 0 }),
+        data: () => ({
+            refresh: 0,
+            icons: {
+                mdiPlusCircleOutline,
+                mdiMinusCircleOutline
+            }
+        }),
         methods: {
             addPoint(player) {
                 let players = this.players
