@@ -1,24 +1,22 @@
 <template>
-    <div class="game-main">
-        <div class="game-window">
-            <div class="game-content">
-                <get-started v-if="currentPage === Page.Start" />
-                <player-counter  v-if="currentPage === Page.PlayerCount" />
-                <player-name v-if="currentPage === Page.PlayerName" />
-                <game-start v-if="currentPage === Page.Game" />
-            </div>
-            <game-buttons
-                :showPrev="currentPage !== Page.Start"
-                :showNext="currentPage !== Page.Game"
-                @clickedPrev="goLeft"
-                @clickedNext="goRight"
-            />
+    <div class="game-window">
+        <div class="game-content">
+            <get-started v-if="currentPage === Page.Start" />
+            <player-counter v-if="currentPage === Page.PlayerCount" />
+            <player-name v-if="currentPage === Page.PlayerName" />
+            <game-start v-if="currentPage === Page.Game" />
         </div>
+        <game-buttons class="game-buttons"
+            :showPrev="currentPage !== Page.Start"
+            :showNext="currentPage !== Page.Game"
+            @clickedPrev="goLeft"
+            @clickedNext="goRight"
+        />
     </div>
 </template>
 
 <script>
-    import GetStarted from './components/GameStart.vue'
+    import GetStarted from './components/GetStarted.vue'
     import PlayerCounter from './components/PlayerCounter.vue'
     import PlayerName from './components/PlayerName.vue'
     import GameStart from './components/GameStart.vue'
@@ -95,35 +93,54 @@
     }
 </script>
 
-<style scoped>
-    .game-main {
-        /* used to disable scrolling */
-        height: 100%;
-        overflow: hidden;
-        /* used to disable scrolling */
-        display: flex;
-        justify-content: center;
-        align-items: top;
-        min-height: 100vh;
-        width: 100%;
-        background: rgb(210, 211, 212);
-    }
+<style>
     .game-window {
-        width: 65%;
-        border: 1px dotted black;
-        padding: 1rem;
-        background-color: aliceblue;
-    }
-    @media only screen and (max-width: 600px) {
-        .game-main {
-            margin: 0;
-            height: 100%;
-        }
-        .game-window {
-            width: 100%;
-        }
+        min-height: 40vh;
+        max-width: 60%;
+        margin: 0 auto;
+        margin-top: 15vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        background: lightcyan;
     }
     .game-content {
-        min-height: 70%;
+        min-height: 40vh;
+    }
+    .game-buttons {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .content-flex-box {
+        height: 40vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .content-flex-item {
+        width: 100%;
+        font-size: 6ch;
+        display: flex;
+        justify-content: center;
+    }
+    .btn-reset {
+        grid-column: span 2;
+    }
+    @media only screen and (max-width: 700px) {
+        .game-window {
+            max-width: 100%;
+            padding: 0;
+            margin-top: 0;
+            min-height: 100vh;
+        }
+        .game-content {
+            min-height: 78vh;
+        }
+        .game-buttons {
+            gap: 0.2;
+        }
+        .content-flex-item {
+            font-size: 6ch;
+        }
     }
 </style>

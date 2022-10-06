@@ -1,19 +1,23 @@
 <template>
-    <div class="player">
-        <label for="playerCount">Number of players</label>
-        <select name="player-count" id="player-count" :value="count"
-            @change="addCount($event.target.value)"
-        >
-            <option :value="2">2</option>
-            <option :value="3">3</option>
-            <option :value="4">4</option>
-            <option :value="5">5</option>
-            <option :value="6">6</option>
-            <option :value="7">7</option>
-            <option :value="8">8</option>
-            <option :value="9">9</option>
-            <option :value="10">10</option>
-        </select>
+    <div class="content-flex-box">
+        <div class="content-flex-item">
+            <div class="player-count">
+                <label for="count-select">Number of players</label>
+                <select class="count-select" name="count-select" id="count-select" :value="count"
+                    @change="addCount($event.target.value)"
+                >
+                    <option :value="2">2</option>
+                    <option :value="3">3</option>
+                    <option :value="4">4</option>
+                    <option :value="5">5</option>
+                    <option :value="6">6</option>
+                    <option :value="7">7</option>
+                    <option :value="8">8</option>
+                    <option :value="9">9</option>
+                    <option :value="10">10</option>
+                </select>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -35,16 +39,16 @@
 </script>
 
 <style scoped>
-    label {
-        width: 100%;
-        height: 10vh;
-        font-size: 3ch;
+    .player-count {
+        display: flex;
+        flex-direction: column;
     }
-    #player-count {
-        width: 100%;
-        height: 10vh;
-        font-size: 3ch;
-        padding: 1rem;
-        border-bottom: 1px solid black;
+    .count-select {
+        background: lightgrey;
+        border: 0;
+        outline: 0;
+        height: 5vh;
+        font-size: 1ch;
+        text-align: center;
     }
 </style>

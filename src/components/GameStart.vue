@@ -1,19 +1,16 @@
 <template>
-    <div :key="refresh">
-        <label class="game-title">Score board</label>
-        <span v-for="(player, i) in players" :key="i">
-            <span class="score-board" v-if="player">
-                <p class="player-name">{{ player.name }}</p>
-                <p class="points">
-                    <span>{{ player.points }}</span>
-                    <span class="btn-group">
-                        <button @click="removePoint(player)">-</button>
-                        <button @click="addPoint(player)">+</button>
-                    </span>
-                </p>
+    <div class="t-player-item" :key="refresh">
+        <label class="t-name">Score board</label>
+        <div class="t-player-names">
+            <span v-for="(player, i) in players" :key="i">
+                <span class="t-player" v-if="player">
+                    <p class="grid-col-span-3">{{ player.name }}</p>
+                    <p class="horizontal-center">{{ player.points }}</p>
+                    <button @click="removePoint(player)">-</button>
+                    <button @click="addPoint(player)">+</button>
+                </span>
             </span>
-            <p v-if="player" class="black-line"></p>
-        </span>
+        </div>
     </div>
 </template>
 
@@ -47,50 +44,65 @@
 </script>
 
 <style scoped>
-    .game-title {
+    .t-player-item {
         width: 100%;
-        height: 10vh;
-        font-size: 3ch;
-    }
-    .btn-group {
         display: flex;
-        align-items: center;
-        gap: 1em;
+        min-height: 40vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+        font-size: 6ch;
     }
-    button {
-        background: grey;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-    }
-    .black-line {
-        border-bottom: 1px solid black;
+    .t-name {
         width: 100%;
-    }
-    .score-board {
-        margin-top: 0.7rem;
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-        height: 10vh;
-    }
-    .score-board p {
-        margin-left: 1rem;
-        height: 3vh;
-        font-size: 3ch;
-    }
-    .player-name {
-        width: 40%;
-    }
-    .points {
-        display: flex;
-        gap: 1rem;
-        width: 50%;
-    }
-    .points > * {
         display: flex;
         justify-content: center;
-        align-items: baseline;
-        flex-grow: 1;
+    }
+    .t-player-names {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .t-player-names > * {
+        max-height: 8vh;
+        min-height: 6vh;
+    }
+    .t-player {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 1;
+    }
+    .horizontal-center {
+        display: flex;
+        justify-content: center;
+    }
+    .grid-col-span-3 {
+        grid-column: span 3;
+    }
+    .t-player button {
+        border-radius: 100%;
+        width: 90%;
+        height: 100%;
+        font-size: 1ch;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @media only screen and (max-width: 700px) {
+        .t-player-item {
+            min-height: 100vh;
+        }
+        .t-player-names {
+            min-height: 30vh;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .t-player {
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid black;
+        }
     }
 </style>

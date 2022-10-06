@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <label class="game-title">Get started</label>
+    <div class="content-flex-box">
+        <label class="content-flex-item">Get started</label>
     </div>
 </template>
 
@@ -11,9 +11,4 @@
 </script>
 
 <style scoped>
-    .game-title {
-        width: 100%;
-        height: 10vh;
-        font-size: 3ch !important;
-    }
 </style>

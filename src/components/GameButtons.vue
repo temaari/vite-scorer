@@ -1,10 +1,9 @@
 <template>
-    <p>
-        <button v-if="showPrev" type="button" @click="$emit('clickedPrev', true)">Prev</button>
-        <button v-else type="button" style="background: transparent; border: 0;;" disabled></button>
-        <button v-if="showNext" type="button" @click="$emit('clickedNext', true)">Next</button>
-        <button class="reset" type="button" @click="reset">Reset score board</button>
-    </p>
+    <div>
+        <button class="prev" :style="showPrev ? '' : 'background: transparent; border: 0; color: transparent;'" type="button" @click="$emit('clickedPrev', true)">Prev</button>
+        <button class="next" :style="showNext ? '' : 'background: transparent; border: 0; color: transparent;'" type="button" @click="$emit('clickedNext', true)">Next</button>
+        <button class="btn-reset" type="button" @click="reset">Reset score board</button>
+    </div>
 </template>
 
 <script>
@@ -28,22 +27,8 @@
 </script>
 
 <style scoped>
-    p {
-        margin-top: 0vh;
-        width: 100%;
-        font-size: 3ch;
-    }
     button {
-        width: 49%;
-        border-radius: 10px;
-        background: grey;
-        height: 10vh;
-    }
-    p > :first-child {
-        margin-right: 2%;
-    }
-    .reset {
-        margin-top: 1rem;
+        min-height: 10vh;
         width: 100%;
     }
 </style>
