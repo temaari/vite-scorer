@@ -110,7 +110,7 @@
         grid-template-columns: repeat(2, 1fr);
     }
     .content-flex-box {
-        height: 40vh;
+        min-height: 40vh;
         width: 100%;
         display: flex;
         align-items: center;

@@ -1,19 +1,19 @@
 <template>
     <div class="content-flex-box">
-    <div class="content-flex-item">
-        <div class="player-item">
-            <label class="s-name">Enter names</label>
-            <div class="s-player-names">
-                <input
-                    v-for="i in count" :key="i"
-                    type="text"
-                    :class="'player-' + i"
-                    :placeholder="`Player ${i}`"
-                    :value="getName(i)"
-                    @input="addPlayer(i, $event.target.value)"
-                />
+        <div class="content-flex-item">
+            <div class="player-item">
+                <label class="s-name">Enter names</label>
+                <div class="s-player-names">
+                    <input
+                        v-for="i in count" :key="i"
+                        type="text"
+                        :class="'player-' + i"
+                        :placeholder="`Player ${i}`"
+                        :value="getName(i)"
+                        @input="addPlayer(i, $event.target.value)"
+                    />
+                </div>
             </div>
-        </div>
         </div>
     </div>
 </template>
