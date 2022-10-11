@@ -2,4 +2,4 @@
 
 # Basic point scorer made with vue
 
-[Click here to view](https://salmon-pebble-0be8bde00.2.azurestaticapps.net)
+[Click here to view](https://witty-cliff-07d6bf010.2.azurestaticapps.net)
